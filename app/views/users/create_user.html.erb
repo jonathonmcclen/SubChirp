@@ -1,0 +1,62 @@
+<h2>Create Account</h2>
+
+<script>
+
+    var password1
+    var password2
+
+    window.onload = function() {
+        console.log('Page is loaded');
+        password1 = document.getElementById("user_password")
+        password2 = document.getElementById("password_confirm")
+
+        password2.setAttribute("onkeypress", "checkMatch()");
+        password2.setAttribute("onChange", "checkMatch()");
+        
+    };
+
+
+
+    function checkMatch(){
+
+        if (password1.value != password2.value){
+            document.getElementById("js_errors").innerHTML = "<p>Your Passwords Dont Match!</p>"
+        } else {
+            document.getElementById("js_errors").innerHTML = "&nbsp;"
+        }
+    }
+
+    
+</script>
+
+
+<% if @user.errors.any?%>
+    <ul>
+        <%@user.errors.full_messages.each do |error|%>
+            <li><%=error%></li>
+        <%end%>
+    </ul>
+<%end %>
+
+
+<%= form_for(@user) do |f|%>
+    <label>Username</label>
+    <%= f.text_field :username%>
+    <br>
+    <br>
+    <label>Email</label>
+    <%= f.text_field :email%>
+    <br>
+    <br>
+    <label>Password</label>
+    <%= f.text_field :password%>
+    <br>
+    <div id="js_errors">
+    &nbsp;
+    </div>
+    <label>Confirm Password</label>
+    <input type="text" id="password_confirm" name="user[password]">
+    <br>
+    <br>
+    <input type="submit"  value="Create Account"><p> or go to <a href="/">Login</a> page.</p>
+<%end%>

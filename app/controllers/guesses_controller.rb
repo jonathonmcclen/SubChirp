@@ -1,14 +1,10 @@
-class ApplicationController < ApplicationController
+class GuessesController < ApplicationController
 
     def view
     
     end
     
     def new
-
-    end
-
-    def index
 
     end
 

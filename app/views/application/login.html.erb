@@ -1,0 +1,13 @@
+<h2>Login</h2>
+<%= form_tag '/login', mthod: :get do%>
+    <label>Username or Email:</label>
+    <%= text_field_tag :'user[username]'%>
+    <br>
+    <br>
+    <label>Password:</label>
+    <%= text_field_tag :'user[password]'%>
+    <br>
+    <br>
+    <input type="submit"  value="login">
+    <p> or <a href="/users/new">Create Account<a>.</p>
+<%end%>
