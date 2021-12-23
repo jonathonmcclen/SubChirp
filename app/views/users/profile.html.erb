@@ -1,0 +1,15 @@
+<h2><%=@user.username%>'s Profile</h2>
+
+
+<%if @user.chirps.any?%>
+    <ul>
+        <%@user.chirps.each do |chirp|%>
+            <li><%=chirp.content%></li>
+        <%end%>
+    </ul>
+<%else%>
+
+    <h1>!</h1>
+    <h3>This User Doesn't Have Any Chirps Yet</h3>
+<%end%>
+

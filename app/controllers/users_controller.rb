@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
     def show
-       render :profile
+        @user = User.find(params[:id])
+        #byebug
+        render :profile
     end
 
     def new
@@ -10,15 +12,16 @@ class UsersController < ApplicationController
     end
 
     def create
-
         @user = User.new
         @user.username = params[:user][:username]
         @user.email = params[:user][:email]
         @user.password = params[:user][:password]
+        @user.password_confirmation = params[:user][:password]
 
         if @user.valid?
             @user.save
-            redirect_to :'/application/login'
+
+            redirect_to '/'
         else 
             render :create_user
         end 

@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+    has_secure_password
     has_many :chirps
 
     validates :username, uniqueness: true
@@ -6,13 +7,6 @@ class User < ActiveRecord::Base
 
     validates :email, uniqueness: true
     validates :email, presence: true
-
-
-    def passwordvalidator
-
-        params[:user][:password]
-
-    end 
 
 
 

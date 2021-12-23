@@ -1,0 +1,17 @@
+<h1>Create new chirp</h1>
+
+<%= form_for(@chirp) do |f|%>
+    <label>Chirp Type</label>
+    <select id="user_id" name="user_id">
+        <option value="1">New Chirp</option>
+        <option value="2">New from tweet</option>
+    </select>
+
+    <label>Sub Target</label>
+    <%= f.text_field :password%>
+
+    <label>Sub Target</label>
+    <%= f.text_field :password%>
+
+    <input type="submit"  value="Create SubChirp">
+<%end%>
