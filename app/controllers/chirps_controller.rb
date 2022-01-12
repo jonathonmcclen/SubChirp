@@ -1,11 +1,17 @@
 class ChirpsController < ApplicationController
 
-    def view
+    def show
         @chirp = Chirp.find(params[:id])
         render chirp_path(@chirp)
     end
+
+    def index
+        
+    end
     
     def new
+        @chirp = Chirp.new
+        
         if session[:id]
             render :create_chirp
         else 
@@ -16,5 +22,7 @@ class ChirpsController < ApplicationController
     def create
 
     end
+
+
 
 end 
