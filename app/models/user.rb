@@ -8,9 +8,8 @@ class User < ActiveRecord::Base
     validates :email, uniqueness: true
     validates :email, presence: true
 
-
-
     def user_params
 
     end 
+
 end 
