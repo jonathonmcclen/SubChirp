@@ -26,5 +26,6 @@ class UsersController < ApplicationController
             render :create_user
         end 
     end 
+
     
 end
