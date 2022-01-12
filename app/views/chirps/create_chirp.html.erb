@@ -1,17 +1,15 @@
 <h1>Create new chirp</h1>
 
-<%= form_for(@chirp) do |f|%>
-    <label>Chirp Type</label>
-    <select id="user_id" name="user_id">
-        <option value="1">New Chirp</option>
-        <option value="2">New from tweet</option>
-    </select>
+<%= form_for @chirp do |f|%>
+    <label>Chirp Content</label>
+    <%=f.text_field :content%>
+    
+    <label>About</label>
+    <p><em>The person this chirp is about. This will be only viewable by people who guess it correctly</em></p>
+    <%=f.text_field%>
 
-    <label>Sub Target</label>
-    <%= f.text_field :password%>
-
-    <label>Sub Target</label>
-    <%= f.text_field :password%>
+    <%= f.check_box :private %>
+    <p><em>Will users be able to guess who the chirp is about?</em></p>
 
     <input type="submit"  value="Create SubChirp">
 <%end%>
