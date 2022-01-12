@@ -8,13 +8,15 @@
   </head>
 
   <body style="margin: 0;">
+
     <div id="top-bar" style="width: 100%; background-color: black; color: white; height: 50px; margin: 0; padding: 20px 50px;">
       <%if session[:id] && logged_user = User.find(session[:id])%>
-        <p>Viewing as <a href="<%=user_path(logged_user)%>">@<%=logged_user.username%></a></p>
+        <p>Viewing as <a href="<%=user_path(logged_user)%>">@<%=logged_user.username%></a>&nbsp;<a href="/logout">Logout</a></p>
       <%else%>
-        <p><a href="/">Login</a></p>
+        <p><a href="/">Login</a>&nbsp;or&nbsp;<a href="/users/new">Create Account</a></p>
       <%end%>
     </div>
+
     <h1>SubChirp</h1>
     <%= yield %>
   </body>
