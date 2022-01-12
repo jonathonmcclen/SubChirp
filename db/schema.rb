@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 4) do
+ActiveRecord::Schema.define(version: 6) do
+
+  create_table "category", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "chirps", force: :cascade do |t|
     t.string "sub_tag"
     t.string "content"
     t.integer "user_id"
+  end
+
+  create_table "chirps_category", force: :cascade do |t|
+    t.integer "chirp_id"
+    t.integer "catagery_id"
+    t.boolean "private"
   end
 
   create_table "guesses", force: :cascade do |t|
