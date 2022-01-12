@@ -1,5 +1,8 @@
 <h2>Login</h2>
 <%= form_tag '/login', mthod: :get do%>
+<% if params[:message] != "" %>
+    <%=params[:message]%>
+<%end%>
     <label>Username or Email:</label>
     <%= text_field_tag :'user[username]'%>
     <br>
