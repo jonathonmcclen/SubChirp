@@ -10,14 +10,30 @@
   <body style="margin: 0;">
 
     <div id="top-bar" style="width: 100%; background-color: black; color: white; height: 50px; margin: 0; padding: 20px 50px;">
-      <%if session[:id] && logged_user = User.find(session[:id])%>
-        <p>Viewing as <a href="<%=user_path(logged_user)%>">@<%=logged_user.username%></a>&nbsp;<a href="/logout">Logout</a></p>
+      <h1 style="display: inline;">SubChirp</h1>
+
+      <%if @logged_user%>
+        <p style="margin: 0;">Viewing as <a href="<%=user_path(@logged_user)%>">@<%=@logged_user.username%></a>&nbsp;|&nbsp;&nbsp;<a href="/logout">Logout</a></p>
       <%else%>
-        <p><a href="/">Login</a>&nbsp;or&nbsp;<a href="/users/new">Create Account</a></p>
+        <p style="margin: 0;"><a href="/">Login</a>&nbsp;or&nbsp;<a href="/users/new">Create Account</a></p>
       <%end%>
     </div>
 
-    <h1>SubChirp</h1>
+    <%if @logged_user%>
+      <div id="top-bar" style="width: 100%; background-color: grey; color: white; height: 20px; margin: 0; padding: 20px 50px;">
+        <a href="/users/<%=session[:id]%>/chirps/new"> <button>Create Chirp</button></a> <button>notifications</button>
+      </div>
+    <%end%>
+
+    <div style="padding: 20px 50px;">
+
     <%= yield %>
+
+    </div>
+
+    <footer style="width: 100%; background-color: black; color: white; height: 50px; margin: 0; padding: 20px 50px;">
+      <p>Author: Jonathon McClendon<br>
+      <a href="mailto:hege@example.com">JonathonsMcClendon@gmail.com</a></p>
+    </footer>
   </body>
 </html>
