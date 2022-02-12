@@ -1,4 +1,4 @@
-<% if @chirp.private == true%>
+<% if @chirp.private%>
     <p><em>This chirp is set to private, so only you can view it.</em><p>
 <%end%>
 <h2><a href="<%=user_path(@chirp.user)%>">@<%=@chirp.user.username%><a></h2>
