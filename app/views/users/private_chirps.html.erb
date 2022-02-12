@@ -1,0 +1,32 @@
+<style>
+ a, a:hover, a:focus, a:active {
+      text-decoration: none;
+      color: inherit;
+ }
+</style>
+
+<h2><%=@user.username%>'s Profile</h2>
+
+<a href="/users/<%=@user.id%>"><button>All Chirps</button></a>&nbsp;<button>Most Recent</button>
+<%if session[:id] == @user.id%>
+    <a href=""><button>Private</button></a>
+<%end%>
+<%if @user.chirps.setto_private.any?%>
+    <div>
+        <%@user.chirps.setto_private.each do |chirp|%>
+            <a href="<%=chirp_path(chirp)%>">
+            <div style="border-style: solid; padding: 10px; margin: 10px 0px; width: 500px;">
+                <h5 style="margin: 0;">@<%=chirp.user.username%></h5>
+                <p style="margin: 10px 0px 0px 0px;"><%=chirp.content%></p>
+                <% if chirp.private%>
+                    <p style="color: grey;"><em>Private</em></p>                
+                <%end%>
+            </div>
+            <a>
+        <%end%>
+    </div>
+<%else%>
+    <h1>!</h1>
+    <h3>This User Doesn't Have Any Chirps Yet</h3>
+<%end%>
+
