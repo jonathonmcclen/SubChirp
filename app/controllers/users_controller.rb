@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+    
+
     def show
         @user = User.find(params[:id])
         #byebug
@@ -26,6 +28,12 @@ class UsersController < ApplicationController
             render :create_user
         end 
     end 
+
+    def private
+        @user = User.find(session[:id])
+        @chirps = @user.chirps.setto_private
+        render :private_chirps
+    end     
 
     
 end
