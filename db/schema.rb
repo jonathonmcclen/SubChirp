@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 4) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.string "uid"
   end
 
 end
