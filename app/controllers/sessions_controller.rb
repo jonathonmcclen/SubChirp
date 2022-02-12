@@ -42,14 +42,31 @@ class SessionsController < ApplicationController
                 render_fail()
             end 
         end
+    end 
 
-        
+    def create_session_omniauth
+        @user =
+            User.find_or_create_by(uid: auth['uid']) do |u|
+                #byebug
+                u.username = auth['info']['name']
+                u.email = auth['info']['email']
+                u.password = SecureRandom.hex(12)
+            end
 
+        session[:id] = @user.id
+        #byebug
+        redirect_to @user
     end 
 
     def clear
         session.clear
         redirect_to '/'
     end 
-    
+
+    private
+
+    def auth
+        request.env['omniauth.auth']
+    end
+
 end 
