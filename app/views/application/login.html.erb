@@ -1,4 +1,5 @@
 <h2>Login</h2>
+
 <%= form_tag '/login', mthod: :get do%>
 <% if params[:message] != "" %>
     <%=params[:message]%>
@@ -14,5 +15,7 @@
     <input type="submit"  value="login">
     <br>
     
-    <p><%= link_to 'Login With GitHub', '/auth/github'%> or <a href="/users/new">Create Account<a>.</p>
+    
 <%end%>
+
+<p><%= button_to 'Login With GitHub', '/auth/github', method: :post %> or <a href="/users/new">Create Account<a>.</p>
