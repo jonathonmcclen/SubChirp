@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create_session_omniauth'
   get '/users/:id/privatechirps', to: 'users#private'
 
+  get '/all_users', to: 'users#all_users'
+
 end

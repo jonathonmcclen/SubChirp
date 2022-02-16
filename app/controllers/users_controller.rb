@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-    
-
     def show
         @user = User.find(params[:id])
         #byebug
@@ -33,7 +31,12 @@ class UsersController < ApplicationController
         @user = User.find(session[:id])
         @chirps = @user.chirps.setto_private
         render :private_chirps
-    end     
+    end  
+    
+    def all_users
+        @users = User.all
+        render :all_users
+    end 
 
     
 end

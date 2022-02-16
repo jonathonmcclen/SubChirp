@@ -1,5 +1,13 @@
 <h1>Create new chirp</h1>
 
+<% if @chirp.errors.any?%>
+    <ul>
+        <%@chirp.errors.full_messages.each do |error|%>
+            <li><%=error%></li>
+        <%end%>
+    </ul>
+<%end %>
+
 <%= form_for @chirp do |f|%>
     <br>
 

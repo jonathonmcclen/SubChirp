@@ -1,22 +1,5 @@
 class SessionsController < ApplicationController
 
-    def login
-
-        @user = User.find_by(username: params[:user][:username])
-
-        if  params[:user][:password] == @user.password
-            session[:id] = @user.id
-            session[:username] = @user.username
-            redirect_to user_path(@user)
-        else 
-            
-        end 
-    end 
-    def render_fail
-        params[:message] = "So Sorry but we cant locate that username/email and password combination"
-        redirect_to '/'
-    end 
-
     def create 
         if params[:user][:username].include?("@")
             user = User.find_by(email: params[:user][:username])
@@ -68,5 +51,10 @@ class SessionsController < ApplicationController
     def auth
         request.env['omniauth.auth']
     end
+
+    def render_fail
+        params[:message] = "So Sorry but we cant locate that username/email and password combination"
+        render :login
+    end 
 
 end 

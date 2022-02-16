@@ -2,7 +2,7 @@
 
 <%= form_tag '/login', mthod: :get do%>
 <% if params[:message] != "" %>
-    <%=params[:message]%>
+    <p><%=params[:message]%></p>
 <%end%>
     <label>Username or Email:</label>
     <%= text_field_tag :'user[username]'%>
@@ -14,8 +14,6 @@
     <br>
     <input type="submit"  value="login">
     <br>
-    
-    
 <%end%>
 
 <p><%= button_to 'Login With GitHub', '/auth/github', method: :post %> or <a href="/users/new">Create Account<a>.</p>

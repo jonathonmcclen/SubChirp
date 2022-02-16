@@ -34,8 +34,11 @@ class ChirpsController < ApplicationController
         params[:chirp][:private].to_i == 1 ? @chirp.private = true : @chirp.private = false
         @chirp.user = User.find(session[:id])
         @chirp.tag_id = params[:chirp][:tag_id]
-        @chirp.save
-        redirect_to "/chirps/#{@chirp[:id]}"
-    end
 
+        if @chirp.save
+            redirect_to "/chirps/#{@chirp[:id]}"
+        else 
+            render :create_chirp
+        end 
+    end
 end 
