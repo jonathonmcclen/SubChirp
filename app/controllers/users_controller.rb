@@ -20,7 +20,6 @@ class UsersController < ApplicationController
 
         if @user.valid?
             @user.save
-
             redirect_to '/'
         else 
             render :create_user
