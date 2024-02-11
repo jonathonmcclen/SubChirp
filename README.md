@@ -1,5 +1,6 @@
 
-###Sub Chirp: The Ultimate Subtweet Experience
+### Sub Chirp: The Ultimate Subtweet Experience
+
 Welcome to Sub Chirp, the Twitter clone project with a twist! Built using Ruby on Rails, Sub Chirp takes the concept of subtweets - or as Gen Z calls them, "sub chirps" - to a whole new level.
 
 Project Description
